@@ -1,0 +1,154 @@
+classdef app1_exported < matlab.apps.AppBase
+
+    % Properties that correspond to app components
+    properties (Access = public)
+        UIFigure    matlab.ui.Figure
+        Image3_12   matlab.ui.control.Image
+        Image3_11   matlab.ui.control.Image
+        Image3_10   matlab.ui.control.Image
+        Image3_9    matlab.ui.control.Image
+        Image3_8    matlab.ui.control.Image
+        Image3_7    matlab.ui.control.Image
+        Image3_6    matlab.ui.control.Image
+        Image3_5    matlab.ui.control.Image
+        Image3_4    matlab.ui.control.Image
+        Image3_3    matlab.ui.control.Image
+        Image3_2    matlab.ui.control.Image
+        Image3      matlab.ui.control.Image
+        Image2      matlab.ui.control.Image
+        FoldButton  matlab.ui.control.Button
+        Image       matlab.ui.control.Image
+        FOLDButton  matlab.ui.control.Button
+    end
+
+    % Callbacks that handle component events
+    methods (Access = private)
+
+        % Button pushed function: FOLDButton
+        function FOLDButtonPushed(app, event)
+            
+        end
+    end
+
+    % Component initialization
+    methods (Access = private)
+
+        % Create UIFigure and components
+        function createComponents(app)
+
+            % Create UIFigure and hide until all components are created
+            app.UIFigure = uifigure('Visible', 'off');
+            app.UIFigure.Position = [100 100 640 480];
+            app.UIFigure.Name = 'MATLAB App';
+
+            % Create FOLDButton
+            app.FOLDButton = uibutton(app.UIFigure, 'push');
+            app.FOLDButton.ButtonPushedFcn = createCallbackFcn(app, @FOLDButtonPushed, true);
+            app.FOLDButton.Position = [514 48 100 22];
+            app.FOLDButton.Text = {'FOLD'; ''};
+
+            % Create Image
+            app.Image = uiimage(app.UIFigure);
+            app.Image.Position = [1 1 640 480];
+            app.Image.ImageSource = 'PokerTabl3.png';
+
+            % Create FoldButton
+            app.FoldButton = uibutton(app.UIFigure, 'push');
+            app.FoldButton.Position = [514 48 100 22];
+            app.FoldButton.Text = 'Fold';
+
+            % Create Image2
+            app.Image2 = uiimage(app.UIFigure);
+            app.Image2.Position = [194 207 44 68];
+            app.Image2.ImageSource = 'AceOfSpades.png';
+
+            % Create Image3
+            app.Image3 = uiimage(app.UIFigure);
+            app.Image3.Position = [469 342 46 70];
+            app.Image3.ImageSource = 'Screen Shot 2022-03-05 at 7.38.04 PM.png';
+
+            % Create Image3_2
+            app.Image3_2 = uiimage(app.UIFigure);
+            app.Image3_2.Position = [424 342 46 70];
+            app.Image3_2.ImageSource = 'Screen Shot 2022-03-05 at 7.38.04 PM.png';
+
+            % Create Image3_3
+            app.Image3_3 = uiimage(app.UIFigure);
+            app.Image3_3.Position = [194 342 46 70];
+            app.Image3_3.ImageSource = 'Screen Shot 2022-03-05 at 7.38.04 PM.png';
+
+            % Create Image3_4
+            app.Image3_4 = uiimage(app.UIFigure);
+            app.Image3_4.Position = [149 342 46 70];
+            app.Image3_4.ImageSource = 'Screen Shot 2022-03-05 at 7.38.04 PM.png';
+
+            % Create Image3_5
+            app.Image3_5 = uiimage(app.UIFigure);
+            app.Image3_5.Position = [14 219 46 70];
+            app.Image3_5.ImageSource = 'Screen Shot 2022-03-05 at 7.38.04 PM.png';
+
+            % Create Image3_6
+            app.Image3_6 = uiimage(app.UIFigure);
+            app.Image3_6.Position = [59 219 46 70];
+            app.Image3_6.ImageSource = 'Screen Shot 2022-03-05 at 7.38.04 PM.png';
+
+            % Create Image3_7
+            app.Image3_7 = uiimage(app.UIFigure);
+            app.Image3_7.Position = [541 219 46 70];
+            app.Image3_7.ImageSource = 'Screen Shot 2022-03-05 at 7.38.04 PM.png';
+
+            % Create Image3_8
+            app.Image3_8 = uiimage(app.UIFigure);
+            app.Image3_8.Position = [586 219 46 70];
+            app.Image3_8.ImageSource = 'Screen Shot 2022-03-05 at 7.38.04 PM.png';
+
+            % Create Image3_9
+            app.Image3_9 = uiimage(app.UIFigure);
+            app.Image3_9.Position = [149 100 46 70];
+            app.Image3_9.ImageSource = 'Screen Shot 2022-03-05 at 7.38.04 PM.png';
+
+            % Create Image3_10
+            app.Image3_10 = uiimage(app.UIFigure);
+            app.Image3_10.Position = [194 100 46 70];
+            app.Image3_10.ImageSource = 'Screen Shot 2022-03-05 at 7.38.04 PM.png';
+
+            % Create Image3_11
+            app.Image3_11 = uiimage(app.UIFigure);
+            app.Image3_11.Position = [469 100 46 70];
+            app.Image3_11.ImageSource = 'Screen Shot 2022-03-05 at 7.38.04 PM.png';
+
+            % Create Image3_12
+            app.Image3_12 = uiimage(app.UIFigure);
+            app.Image3_12.Position = [424 100 46 70];
+            app.Image3_12.ImageSource = 'Screen Shot 2022-03-05 at 7.38.04 PM.png';
+
+            % Show the figure after all components are created
+            app.UIFigure.Visible = 'on';
+        end
+    end
+
+    % App creation and deletion
+    methods (Access = public)
+
+        % Construct app
+        function app = app1_exported
+
+            % Create UIFigure and components
+            createComponents(app)
+
+            % Register the app with App Designer
+            registerApp(app, app.UIFigure)
+
+            if nargout == 0
+                clear app
+            end
+        end
+
+        % Code that executes before app deletion
+        function delete(app)
+
+            % Delete UIFigure when app is deleted
+            delete(app.UIFigure)
+        end
+    end
+end
