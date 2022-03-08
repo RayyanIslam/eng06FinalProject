@@ -4,7 +4,7 @@ classdef Card
         Value
     end
 
-    methods
+    methods (Static)
         function card = Card(suit, value)
             card.Suit = suit;
             card.Value = value;

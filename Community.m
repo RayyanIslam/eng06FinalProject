@@ -3,7 +3,7 @@ classdef Community < handle
         Cards
     end
 
-    methods
+    methods 
         function community = Community()
             community.Cards = Card.empty();
         end
