@@ -4,24 +4,27 @@ classdef Card
         Value
     end
 
-    methods (Static)
+    methods
         function card = Card(suit, value)
             card.Suit = suit;
             card.Value = value;
         end
 
-        function cardValueNumber = getCardValue(card)
-            switch card.Value
-                case "A"
-                    cardValueNumber = 14;
-                case "K"
-                    cardValueNumber = 13;
-                case "Q"
-                    cardValueNumber = 12;
-                case "J"
-                    cardValueNumber = 11;
-                otherwise
-                    cardValueNumber = str2double(card.Value);
+        function cardValues = getValues(cards)
+            numberCards = length(cards);
+            for i = 1 : numberCards
+                switch cards(i).Value
+                    case "A"
+                        cardValues(i) = 14;
+                    case "K"
+                        cardValues(i) = 13;
+                    case "Q"
+                        cardValues(i) = 12;
+                    case "J"
+                        cardValues(i) = 11;
+                    otherwise
+                        cardValues(i) = str2double(cards(i).Value);
+                end
             end
         end
     end
