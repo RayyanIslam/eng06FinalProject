@@ -11,6 +11,7 @@ classdef Card
         end
 
         function cardValues = getValues(cards)
+            cardValues = double.empty();
             numberCards = length(cards);
             for i = 1 : numberCards
                 switch cards(i).Value
@@ -26,6 +27,10 @@ classdef Card
                         cardValues(i) = str2double(cards(i).Value);
                 end
             end
+        end
+
+        function boolean = isEqual(cards1, cards2)
+            boolean = ([cards1.Suit] == [cards2.Suit]) & ([cards1.getValues()] == [cards2.getValues()]);
         end
     end
 end
