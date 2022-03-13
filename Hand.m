@@ -158,5 +158,15 @@ classdef Hand < handle
                 boolean = false;
             end
         end
+
+        function boolean = isGreater(hand1, hand2)
+            for i = 1 : length(hand1.Scores)
+                if hand1.Scores(i) > hand2.Scores(i)
+                    boolean = true;
+                    return;
+                end
+            end
+            boolean = false;
+        end
     end
 end
