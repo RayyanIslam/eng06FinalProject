@@ -11,7 +11,6 @@ classdef Card
         end
 
         function cardValues = getValues(cards)
-            cardValues = double.empty();
             numberCards = length(cards);
             for i = 1 : numberCards
                 switch cards(i).Value
